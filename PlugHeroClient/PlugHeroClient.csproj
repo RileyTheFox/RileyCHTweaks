@@ -79,5 +79,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <Import Project="..\Common\Common.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
