@@ -31,19 +31,19 @@ namespace BiendeoCHLib.Wrappers {
 		[WrapperField("\u031A\u0311\u0312\u030D\u0315\u0310\u0311\u0316\u030D\u0311\u0312")]
 		private static readonly AccessTools.FieldRef<object, string> playerNameField;
 
-		public ControllerType Instrument {
+		/*public ControllerType Instrument {
 			get => (ControllerType)instrumentField(PlayerProfile);
-			set => instrumentField(PlayerProfile) = value;
+			set => instrumentField(PlayerProfile) = (byte)value;
 		}
 		[WrapperField("\u030E\u031C\u0314\u031B\u030E\u031A\u0313\u030D\u0314\u0310\u031A")]
-		private static readonly AccessTools.FieldRef<object, object> instrumentField;
+		private static readonly AccessTools.FieldRef<object, byte> instrumentField;*/
 
-		public Difficulty Difficulty {
+		/*public Difficulty Difficulty {
 			get => (Difficulty)difficultyField(PlayerProfile);
-			set => difficultyField(PlayerProfile) = value;
+			set => difficultyField(PlayerProfile) = (sbyte)value;
 		}
 		[WrapperField("\u030E\u0310\u0312\u031C\u0314\u031A\u030E\u031A\u0312\u0318\u030E")]
-		private static readonly AccessTools.FieldRef<object, object> difficultyField;
+		private static readonly AccessTools.FieldRef<object, sbyte> difficultyField;*/
 
 		public bool Bot
 		{
@@ -56,10 +56,10 @@ namespace BiendeoCHLib.Wrappers {
 		public NoteWrapper.Modifier NoteModifier
 		{
 			get => (NoteWrapper.Modifier)noteModifierField(PlayerProfile);
-			set => noteModifierField(PlayerProfile) = value;
+			set => noteModifierField(PlayerProfile) = (int)value;
 		}
 		[WrapperField("\u030E\u0315\u0317\u030F\u0312\u0316\u0313\u0311\u030E\u030D\u0318")]
-		private static readonly AccessTools.FieldRef<object, object> noteModifierField;
+		private static readonly AccessTools.FieldRef<object, int> noteModifierField;
 
 		public GameSettingWrapper NoteSpeed
 		{

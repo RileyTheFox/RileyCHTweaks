@@ -409,6 +409,10 @@ namespace BiendeoCHLib.Wrappers {
 
 		#region Methods
 
+		public void Start() => startMethod(BasePlayer, null);
+		[WrapperMethod("Start")]
+		private static readonly FastInvokeHandler startMethod;
+
 		public void Awake() => awakeMethod(BasePlayer, null);
         [WrapperMethod("Awake")]
         private static readonly FastInvokeHandler awakeMethod;

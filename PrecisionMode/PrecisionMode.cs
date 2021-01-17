@@ -23,6 +23,16 @@ namespace PrecisionMode
 		// E.g 0.07f = 70ms, Front end = 70ms, Back end = 70ms
 		// 70ms + 70ms = 140ms = CH default window size.
 		public const float PRECISION_WINDOW_SIZE = 0.05f;
+		// These values are the CH default's divided by a number to make them smaller.
+		public const float PRECISION_STRUM_LENIENCE_AMOUNT_NO_NOTES = 0.048f / 2f;
+		public const float PRECISION_STRUM_LENIENCE_AMOUNT = 0.084f / 2f;
+		public const float PRECISION_HOPO_LENIENCE_AMOUNT = 0.096f / 2f;
+
+		public const bool PRECISION_ANTI_GHOSTING_ENABLED = true;
+		public const int PRECISION_ANTI_GHOSTING_LIMIT = 1;
+
+		public int[] PlayerGhostCount = new int[4] {0, 0, 0, 0};
+		public byte[] PlayerLastNoteMask = new byte[4] { 0, 0, 0, 0 };
 
 		public static PrecisionMode Instance { get; private set; }
 		private Harmony Harmony;
@@ -37,11 +47,12 @@ namespace PrecisionMode
 		~PrecisionMode()
 		{
 			Harmony.UnpatchAll();
+			Instance = null;
 		}
 
 		#region Fields
 
-		private bool sceneChanged = false;
+		private bool sceneChanged = true;
 
 		private GameManagerWrapper gameManager;
 		private GlobalVariablesWrapper globalVariables;
@@ -58,6 +69,38 @@ namespace PrecisionMode
 		private GUIStyle settingsHorizontalSliderThumbStyle;
 
 		#endregion
+
+		public int CountFrets(byte noteMask)
+		{
+			int count = 0;
+
+			// Open note
+			if((noteMask & 64) != 0)
+			{
+				return 64;
+			}
+			if((noteMask & 1) != 0)
+			{
+				count++;
+			}
+			if ((noteMask & 2) != 0)
+			{
+				count++;
+			}
+			if ((noteMask & 4) != 0)
+			{
+				count++;
+			}
+			if ((noteMask & 8) != 0)
+			{
+				count++;
+			}
+			if ((noteMask & 16) != 0)
+			{
+				count++;
+			}
+			return count;
+		}
 
 		#region UnityMethods
 
@@ -79,18 +122,19 @@ namespace PrecisionMode
 
 				if (sceneName == "Gameplay")
 				{
+					for(int i = 0; i < 4; i++)
+					{
+						PlayerGhostCount[i] = 0;
+					}
 					var gameManagerObject = GameObject.Find("Game Manager");
 					gameManager = GameManagerWrapper.Wrap(gameManagerObject.GetComponent<GameManager>());
 					globalVariables = gameManager.GlobalVariables;
 
 					basePlayer = gameManager.BasePlayers[0];
 
-					// Remove this when menu button is implemented
-					basePlayer.Player.PlayerProfile.AddModifier(NoteWrapper.Modifier.Precision);
-					if(basePlayer.Player.PlayerProfile.HasModifier(NoteWrapper.Modifier.Precision))
-					{
-						Logger.LogInfo("Precision Mode is enabled");
-					}
+					Logger.LogInfo(basePlayer.Player.PlayerIndex);
+					Logger.LogInfo(basePlayer.Notes.Count);
+					Logger.LogInfo((int)basePlayer.Player.PlayerProfile.NoteModifier);
 				}
 			}
 		}

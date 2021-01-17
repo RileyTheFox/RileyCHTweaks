@@ -71,10 +71,10 @@ namespace BiendeoCHLib.Wrappers
         public MenuState State
         {
             get => (MenuState)stateField(PlayerSelection);
-            set => stateField(PlayerSelection) = value;
+            set => stateField(PlayerSelection) = (int)value;
         }
         [WrapperField("\u0312\u0312\u0313\u030F\u0318\u031B\u0310\u030E\u030F\u0317\u0315")]
-        private static readonly AccessTools.FieldRef<PlayerSelection, object> stateField;
+        private static readonly AccessTools.FieldRef<PlayerSelection, int> stateField;
 
         #endregion
 

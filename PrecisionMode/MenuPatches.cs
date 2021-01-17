@@ -21,14 +21,14 @@ namespace PrecisionMode
             PlayerSelectionWrapper playerSelection = PlayerSelectionWrapper.Wrap((PlayerSelection)__instance);
             BaseMenuWrapper baseMenu = playerSelection.CastToBaseMenu();
 
-            baseMenu.MenuStrings = new string[15];
+            baseMenu.MenuStrings = new string[20];
             playerSelection.UsedMenuStrings = 0;
 
             return false;
         }
     }
 
-    /*[HarmonyCHPatch(typeof(PlayerSelectionWrapper), nameof(PlayerSelectionWrapper.ShowModifiers))]
+    [HarmonyCHPatch(typeof(PlayerSelectionWrapper), nameof(PlayerSelectionWrapper.ShowModifiers))]
     class PlayerSelectionShowModifiers
     {
         [HarmonyCHPrefix]
@@ -59,9 +59,9 @@ namespace PrecisionMode
 
             return false;
         }
-    }*/
+    }
 
-    /*[HarmonyCHPatch(typeof(PlayerSelectionWrapper), nameof(PlayerSelectionWrapper.ShowChosenModifiers))]
+    [HarmonyCHPatch(typeof(PlayerSelectionWrapper), nameof(PlayerSelectionWrapper.ShowChosenModifiers))]
     class PlayerSelectionShowChosenModifiers
     {
         static bool Prefix(object __instance)
@@ -141,17 +141,13 @@ namespace PrecisionMode
                     playerSelection.ShowReady();
                     return false;
                 case "None":
-                    Debug.Log(playerProfile.NoteModifier);
                     playerProfile.NoteModifier = NoteWrapper.Modifier.None;
-                    Debug.Log("No more modifiers enabled");
                     break;
                 case "Precision Mode":
                     playerProfile.AddModifier(NoteWrapper.Modifier.Precision);
-                    UnityEngine.Debug.Log("Precision enabled");
                     break;
                 case "All Strums":
                     playerProfile.AddModifier(NoteWrapper.Modifier.AllStrums);
-                    Debug.Log("Enabled all strums");
                     break;
                 case "All HOPO's":
                     playerProfile.AddModifier(NoteWrapper.Modifier.AllHOPOs);
@@ -185,9 +181,8 @@ namespace PrecisionMode
                     break;
             }
             playerSelection.ShowChosenModifiers();
-            Debug.Log("Showing chosen modifiers");
 
             return false;
         }
-    }*/
+    }
 }

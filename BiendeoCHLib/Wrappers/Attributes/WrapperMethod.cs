@@ -21,7 +21,6 @@ namespace BiendeoCHLib.Wrappers.Attributes {
 		}
 
 		public MethodInfo GetMethodInfo(Type type, ManualLogSource logger) {
-			logger.LogInfo(ObfuscatedName.DecodeUnicode());
 			if (Types.Length == 0) {
 				return type.GetMethod(ObfuscatedName, BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 			} else {

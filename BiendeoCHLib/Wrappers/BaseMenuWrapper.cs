@@ -58,7 +58,8 @@ namespace BiendeoCHLib.Wrappers
             get => topOfMenuField(BaseMenu);
             set => topOfMenuField(BaseMenu) = value;
         }
-        [WrapperField("\u0311\u0311\u031C\u0314\u031A\u030F\u0319\u031A\u0317\u031C\u031A")]
+        //[WrapperField("\u0311\u0311\u031C\u0314\u031A\u030F\u0319\u031A\u0317\u031C\u031A")]
+        [WrapperField("\u0311\u0314\u0314\u031B\u0312\u0313\u031A\u0318\u0315\u030E\u030D")]
         private static readonly AccessTools.FieldRef<BaseMenu, int> topOfMenuField;
 
         public int MaxTopOfMenu
@@ -66,7 +67,7 @@ namespace BiendeoCHLib.Wrappers
             get => maxTopOfMenuField(BaseMenu);
             set => maxTopOfMenuField(BaseMenu) = value;
         }
-        [WrapperField("\u0311\u0314\u0314\u031B\u0312\u0313\u031A\u0318\u0315\u030E\u030D")]
+        [WrapperField("\u0311\u0311\u031C\u0314\u031A\u030F\u0319\u031A\u0317\u031C\u031A")]
         private static readonly AccessTools.FieldRef<BaseMenu, int> maxTopOfMenuField;
 
         public string[] MenuStrings

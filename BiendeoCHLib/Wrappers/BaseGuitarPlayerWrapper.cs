@@ -48,6 +48,22 @@ namespace BiendeoCHLib.Wrappers {
 		[WrapperField("\u030D\u031A\u031A\u031B\u0311\u030F\u031B\u0319\u030F\u0319\u030D")]
 		private static readonly AccessTools.FieldRef<object, float> currentWhammyField;
 
+		public float StrumLenienceAmount
+		{
+			get => strumLenienceAmountField(BaseGuitarPlayer);
+			set => strumLenienceAmountField(BaseGuitarPlayer) = value;
+		}
+		[WrapperField("\u0313\u030F\u0311\u0319\u0317\u0317\u031A\u0314\u0317\u030F\u030F")]
+		private static readonly AccessTools.FieldRef<object, float> strumLenienceAmountField;
+
+		public float StrumLenienceAmountNoNotes
+		{
+			get => strumLenienceAmountNoNotesField(BaseGuitarPlayer);
+			set => strumLenienceAmountNoNotesField(BaseGuitarPlayer) = value;
+		}
+		[WrapperField("\u031B\u031B\u030D\u031A\u0315\u0317\u0318\u0314\u030D\u031B\u030F")]
+		private static readonly AccessTools.FieldRef<object, float> strumLenienceAmountNoNotesField;
+
 		public float StrumLenienceTimer
 		{
 			get => strumLenienceTimerField(BaseGuitarPlayer);
