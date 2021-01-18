@@ -45,7 +45,7 @@ namespace BiendeoCHLib.Wrappers.Attributes {
 								Environment.Exit(1);
 							}
 							fieldsSeen.Add(fieldInfo);
-							logger.LogDebug($"Loaded field {wrapperType.Name}.{field.Name}");
+							//logger.LogDebug($"Loaded field {wrapperType.Name}.{field.Name}");
 						}
 					}
 				} else if (field.FieldType == typeof(FieldInfo) && field.GetValue(null) == null) {
@@ -70,7 +70,7 @@ namespace BiendeoCHLib.Wrappers.Attributes {
 						if (propertyInfo != null) {
 							field.SetValue(null, propertyInfo);
 							propertiesSeen.Add(propertyInfo);
-							logger.LogDebug($"Loaded property {wrapperType.Name}.{field.Name}");
+							//logger.LogDebug($"Loaded property {wrapperType.Name}.{field.Name}");
 						}
 					}
 				} else if (field.FieldType == typeof(FastInvokeHandler) && field.GetValue(null) == null) {
@@ -80,7 +80,7 @@ namespace BiendeoCHLib.Wrappers.Attributes {
 						if (methodInfo != null) {
 							field.SetValue(null, MethodInvoker.GetHandler(methodInfo));
 							methodsSeen.Add(methodInfo);
-							logger.LogDebug($"Loaded method {wrapperType.Name}.{field.Name}");
+							//logger.LogDebug($"Loaded method {wrapperType.Name}.{field.Name}");
 						}
 					}
 				} else if (field.FieldType == typeof(ConstructorInfo) && field.GetValue(null) == null) {
@@ -90,7 +90,7 @@ namespace BiendeoCHLib.Wrappers.Attributes {
 						if (constructorInfo != null) {
 							field.SetValue(null, constructorInfo);
 							constructorsSeen.Add(constructorInfo);
-							logger.LogDebug($"Loaded constructor {wrapperType.Name}.{field.Name}");
+							//logger.LogDebug($"Loaded constructor {wrapperType.Name}.{field.Name}");
 						}
 					}
 				}

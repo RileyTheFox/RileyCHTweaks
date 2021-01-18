@@ -195,30 +195,21 @@ namespace BiendeoCHLib.Wrappers {
 		[WrapperField("\u0310\u0312\u031C\u0319\u0313\u031B\u0311\u0315\u030F\u031A\u0318")]
 		private static readonly AccessTools.FieldRef<BasePlayer, float> soloActField;
 
-		public float HitWindowLength {
-			get => hitWindowLengthField(BasePlayer);
-			set => hitWindowLengthField(BasePlayer) = value;
-		}
-		[WrapperField("\u0310\u0312\u031C\u0319\u0313\u031B\u0311\u0315\u030F\u031A\u0318")]
-		private static readonly AccessTools.FieldRef<BasePlayer, float> hitWindowLengthField;
-
-		// Seems to be flags where 1 is green, 2 is red, 4, is yellow, 8 is blue, 16 is orange, and 64 is open.
-		// If no notes are held, open is set.
-		public byte NoteToBePlayed {
-			get => noteToBePlayedField(BasePlayer);
-			set => noteToBePlayedField(BasePlayer) = value;
+		public byte ButtonsPressed
+		{
+			get => buttonsPressedField(BasePlayer);
+			set => buttonsPressedField(BasePlayer) = value;
 		}
 		[WrapperField("\u031B\u031A\u0310\u0311\u031B\u031B\u030D\u0313\u0319\u0319\u030D")]
-		private static readonly AccessTools.FieldRef<BasePlayer, byte> noteToBePlayedField;
+		private static readonly AccessTools.FieldRef<BasePlayer, byte> buttonsPressedField;
 
-		// Seems to be flags where 1 is green, 2 is red, 4, is yellow, 8 is blue, and 16 is orange.
-		// If no notes are held, it is 0.
-		public byte FretsHeld {
-			get => fretsHeldField(BasePlayer);
-			set => fretsHeldField(BasePlayer) = value;
+		public byte ButtonsPressedLastFrame
+		{
+			get => buttonsPressedLastFrameField(BasePlayer);
+			set => buttonsPressedLastFrameField(BasePlayer) = value;
 		}
 		[WrapperField("\u030F\u031A\u0319\u0314\u031B\u0316\u0316\u0316\u031B\u0318\u0314")]
-		private static readonly AccessTools.FieldRef<BasePlayer, byte> fretsHeldField;
+		private static readonly AccessTools.FieldRef<BasePlayer, byte> buttonsPressedLastFrameField;
 
 		// Initially true, is false when paused (however, it is true on song ending as well).
 		public bool IsPlaying {

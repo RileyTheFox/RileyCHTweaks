@@ -42,6 +42,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>G:\Clone Hero\5. Other\v23 CHLoader\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
+    <Reference Include="Rewired_Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\Clone Hero\Clone Hero_Data\Managed\Rewired_Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -96,6 +100,7 @@
     <Compile Include="Wrappers\ChartEventWrapper.cs" />
     <Compile Include="Wrappers\ChartWrapper.cs" />
     <Compile Include="Wrappers\Difficulty.cs" />
+    <Compile Include="Wrappers\GuitarPlayerWrapper.cs" />
     <Compile Include="Wrappers\LanguageManagerWrapper.cs" />
     <Compile Include="Wrappers\PlayerSelectionWrapper.cs" />
     <Compile Include="Wrappers\ScoreIOWrapper.cs" />

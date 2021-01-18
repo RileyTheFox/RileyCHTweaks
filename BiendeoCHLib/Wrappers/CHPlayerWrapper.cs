@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Rewired;
 
 namespace BiendeoCHLib.Wrappers {
 	[Wrapper("\u0315\u0313\u0315\u030F\u030E\u030D\u0314\u031C\u0313\u0316\u0313")]
@@ -30,6 +31,14 @@ namespace BiendeoCHLib.Wrappers {
 		}
 		[WrapperField("\u0313\u0318\u0314\u0316\u0313\u0317\u0312\u0317\u031A\u0314\u031A")]
 		private static readonly AccessTools.FieldRef<object, object> playerProfileField;
+
+		public Player Player
+		{
+			get => playerField(CHPlayer);
+			set => playerField(CHPlayer) = value;
+		}
+		[WrapperField("\u0317\u0319\u0316\u030E\u031A\u030E\u031A\u031A\u0319\u0311\u0318")]
+		private static readonly AccessTools.FieldRef<object, Player> playerField;
 
 		public int PlayerIndex {
 			get => playerIndexField(CHPlayer);

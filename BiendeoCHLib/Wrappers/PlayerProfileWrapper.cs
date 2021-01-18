@@ -69,6 +69,22 @@ namespace BiendeoCHLib.Wrappers {
 		[WrapperField("\u0313\u030E\u0314\u0318\u0317\u031A\u0315\u031C\u0313\u0316\u0312")]
 		private static readonly AccessTools.FieldRef<object, object> noteSpeedField;
 
+		public GameSettingWrapper Tilt
+		{
+			get => GameSettingWrapper.Wrap(tiltField(PlayerProfile));
+			set => tiltField(PlayerProfile) = value.GameSetting;
+		}
+		[WrapperField("\u030E\u031A\u031A\u0313\u031B\u0316\u0318\u031C\u0317\u031B\u031A")]
+		private static readonly AccessTools.FieldRef<object, object> tiltField;
+
+		public GameSettingWrapper DualshockMode
+		{
+			get => GameSettingWrapper.Wrap(dualshockField(PlayerProfile));
+			set => dualshockField(PlayerProfile) = value.GameSetting;
+		}
+		[WrapperField("\u0310\u031B\u0318\u0314\u0316\u031B\u0316\u0315\u031C\u0315\u0317")]
+		private static readonly AccessTools.FieldRef<object, object> dualshockField;
+
 		#endregion
 
 		#region Methods

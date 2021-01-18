@@ -48,6 +48,14 @@ namespace BiendeoCHLib.Wrappers {
 		[WrapperField("\u030D\u031A\u031A\u031B\u0311\u030F\u031B\u0319\u030F\u0319\u030D")]
 		private static readonly AccessTools.FieldRef<object, float> currentWhammyField;
 
+		public float LastWhammy
+		{
+			get => lastWhammyField(BaseGuitarPlayer);
+			set => lastWhammyField(BaseGuitarPlayer) = value;
+		}
+		[WrapperField("\u0316\u0313\u0319\u0310\u031C\u0313\u0311\u0310\u031A\u0315\u0316")]
+		private static readonly AccessTools.FieldRef<object, float> lastWhammyField;
+
 		public float StrumLenienceAmount
 		{
 			get => strumLenienceAmountField(BaseGuitarPlayer);
@@ -80,6 +88,14 @@ namespace BiendeoCHLib.Wrappers {
 		[WrapperField("\u031A\u030E\u0315\u0319\u030F\u0310\u030F\u0312\u0315\u0315\u0318")]
 		private static readonly AccessTools.FieldRef<object, float> hopoLenienceTimerField;
 
+		public bool StrummedThisFrame
+		{
+			get => strummedThisFrameField(BaseGuitarPlayer);
+			set => strummedThisFrameField(BaseGuitarPlayer);
+		}
+		[WrapperField("\u0312\u030E\u031A\u030F\u030E\u0311\u0315\u0316\u0315\u031B\u0313")]
+		private static readonly AccessTools.FieldRef<object, bool> strummedThisFrameField;
+
 		public bool WasHOPOStrummed
 		{
 			get => hopoStrummedField(BaseGuitarPlayer);
@@ -87,6 +103,14 @@ namespace BiendeoCHLib.Wrappers {
 		}
 		[WrapperField("\u0311\u0311\u0314\u0313\u031B\u030D\u0310\u031B\u030D\u031A\u0314")]
 		private static readonly AccessTools.FieldRef<object, bool> hopoStrummedField;
+
+		public byte ButtonsPressedTap
+		{
+			get => buttonsPressedTapField(BaseGuitarPlayer);
+			set => buttonsPressedTapField(BaseGuitarPlayer) = value;
+		}
+		[WrapperField("\u031C\u030D\u0317\u0319\u0310\u0311\u0315\u0313\u0319\u030D\u0316")]
+		private static readonly AccessTools.FieldRef<object, byte> buttonsPressedTapField;
 
 		#endregion
 
@@ -115,6 +139,10 @@ namespace BiendeoCHLib.Wrappers {
 		public void UpdateSustains() => updateSustainsMethod.Invoke(BaseGuitarPlayer, null);
 		[WrapperMethod("\u0319\u0313\u0319\u030E\u0318\u0315\u030D\u0317\u0317\u0315\u0313")]
 		private static readonly FastInvokeHandler updateSustainsMethod;
+
+		public void UpdateInput() => updateInputMethod(BaseGuitarPlayer);
+		[WrapperMethod("\u030F\u0313\u031B\u0317\u0319\u0314\u0318\u030D\u0317\u030F\u030D")]
+		private static readonly FastInvokeHandler updateInputMethod;
 
 		#endregion
 	}

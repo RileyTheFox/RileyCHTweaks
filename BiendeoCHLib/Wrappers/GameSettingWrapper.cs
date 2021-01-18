@@ -147,6 +147,10 @@ namespace BiendeoCHLib.Wrappers {
 
 		#region Methods
 
+		public static bool IsSettingEnabled(GameSettingWrapper gameSetting) => (bool)isSettingEnabledMethod(null, new object[] { gameSetting.GameSetting });
+		[WrapperMethod("\u031B\u0318\u0312\u031A\u0316\u0310\u030D\u0311\u0310\u0319\u0313")]
+		private static readonly FastInvokeHandler isSettingEnabledMethod;
+
 		public void ClampValue() => clampValueMethod(GameSetting);
 		[WrapperMethod("\u0317\u0319\u0315\u031B\u0319\u0313\u031C\u0313\u030E\u031A\u030F")]
 		private static readonly FastInvokeHandler clampValueMethod;

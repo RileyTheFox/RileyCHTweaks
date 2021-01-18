@@ -79,7 +79,7 @@ namespace BiendeoCHLib.Patches.Attributes {
 			{
 				var reversePatch = harmony.CreateReversePatcher(targetMethod, reversePatchMethod);
 				reversePatch.Patch();
-				logger.LogDebug($"Created Reverse Patcher. Copied method {targetMethod.Name} from class {targetMethod.DeclaringType.Name} to {reversePatchMethod.methodName}");
+				logger.LogDebug($"Created Reverse Patcher. Copied method {targetMethod.Name} from class {targetMethod.DeclaringType.Name} to {reversePatchMethod.method.DeclaringType.Name}.{reversePatchMethod.method.Name}");
 			} else {
 				logger.LogWarning("Found no prefix/postfix/reverse patch methods for patch, so no action will be done.");
 			}

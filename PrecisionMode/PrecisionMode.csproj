@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PrecisionMode</RootNamespace>
-    <AssemblyName>PrecisionMode</AssemblyName>
+    <AssemblyName>Precision Mode</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -43,6 +43,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>G:\Clone Hero\5. Other\v23 CHLoader\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
+    <Reference Include="Rewired_Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -72,9 +73,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnginePatches.cs" />
+    <Compile Include="InputPatches.cs" />
     <Compile Include="MenuPatches.cs" />
     <Compile Include="PrecisionMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VersionCheck.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BiendeoCHLib\BiendeoCHLib.csproj">
