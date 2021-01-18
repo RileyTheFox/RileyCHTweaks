@@ -18,8 +18,8 @@ namespace BiendeoCHLib {
 		public BiendeoCHLib() {
 			Instance = this;
 			WrapperBase.InitializeWrappers(Logger);
-			versionCheck = gameObject.AddComponent<VersionCheck>();
-			versionCheck.InitializeSettings(Assembly.GetExecutingAssembly(), Config);
+			/*versionCheck = gameObject.AddComponent<VersionCheck>();
+			versionCheck.InitializeSettings(Assembly.GetExecutingAssembly(), Config);*/
 		}
 	}
 }
