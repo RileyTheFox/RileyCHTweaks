@@ -19,7 +19,7 @@ namespace PrecisionMode
             BaseGuitarPlayerWrapper baseGuitarPlayerWrapper = BaseGuitarPlayerWrapper.Wrap((BaseGuitarPlayer)__instance);
             BasePlayerWrapper basePlayer = baseGuitarPlayerWrapper.CastToBasePlayer();
 
-            if (basePlayer.IsPlaying)
+            if (basePlayer.IsPlaying && basePlayer.Player.PlayerProfile.HasModifier(NoteWrapper.Modifier.Precision))
                 PrecisionMode.Instance.AddGhostCountToPlayer(basePlayer.Player, PrecisionMode.Instance.CountFretsPressedThisFrame(basePlayer.ButtonsPressed, basePlayer.ButtonsPressedLastFrame));
         }
     }

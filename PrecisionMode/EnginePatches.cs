@@ -184,7 +184,7 @@ namespace PrecisionMode
                                 baseGuitarPlayer.HitNote(note);
                                 return false;
                             }
-                            else PrecisionMode.BepLog.LogDebug("Prevented note being hit due to ghosting. Ghost count ");
+                            //else PrecisionMode.BepLog.LogDebug("Prevented note being hit due to ghosting.");
                         }
                         if(baseGuitarPlayer.StrumLenienceTimer > 0f && baseGuitarPlayer.HopoLenienceTimer <= 0f && (i == 0 || basePlayer.Combo == 0) && baseGuitarPlayer.WasNoteHit(note))
                         {
@@ -207,8 +207,11 @@ namespace PrecisionMode
         {
             BasePlayerWrapper basePlayer = BasePlayerWrapper.Wrap((BasePlayer)__instance);
 
-            PrecisionMode.Instance.SetPlayerGhostCount(basePlayer.Player, 0);
-            PrecisionMode.BepLog.LogDebug("Missed note. Resetting ghost count");
+            if(basePlayer.Player.PlayerProfile.HasModifier(NoteWrapper.Modifier.Precision))
+            {
+                PrecisionMode.Instance.SetPlayerGhostCount(basePlayer.Player, 0);
+                //PrecisionMode.BepLog.LogDebug("Missed note. Resetting ghost count");
+            }
         }
     }
 }
